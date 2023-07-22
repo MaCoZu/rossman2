@@ -1,6 +1,9 @@
 # ROSSMAN Store Sales Prediction - DSR Mini Competition
-Building a ml algorithim for forcast sales
+Building a ml algorithim to forcast sales for rossmann drugstores
 ![](assets/Rossmann.png)
+
+Use Python 3.11.4
+
 
 # Overview
 This repository contains the solution and code for the “Rossmann Store Sales Prediction” DSR Mini competition. The goal of this competition is to predict the sales for Rossmann stores for a given period, considering various features such as promotions, holidays, and store information.
