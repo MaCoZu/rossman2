@@ -3,6 +3,12 @@ import numpy as np
 import datetime
 
 
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
+from sklearn.compose import ColumnTransformer
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+
 # load the data
 train = pd.read_csv('data/train.csv')
 store = pd.read_csv('data/store.csv')
@@ -100,7 +106,8 @@ def cleaner(df, store):
     df_.dropna(inplace=True)
 
     df_ = df_[df_['Open']==1]
-
+    df_ = df_[df_['Sales'] >=0]
+    df_ = df_[df_['Sales'] !=0]
 
     # for now we don't account for Holidays
     df_ = df_.drop(columns=['StateHoliday', 'SchoolHoliday', 'Open'])
@@ -131,3 +138,5 @@ def cleaner(df, store):
     df_ = downcaster(df_)
     
     return df_
+
+
