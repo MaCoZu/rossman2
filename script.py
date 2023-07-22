@@ -3,12 +3,6 @@ import numpy as np
 import datetime
 
 
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
-from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
-
 # load the data
 train = pd.read_csv('data/train.csv')
 store = pd.read_csv('data/store.csv')
