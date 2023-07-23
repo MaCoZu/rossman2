@@ -12,7 +12,7 @@ def encode_promo_interval(df):
     """custom encoding for promoInterval where NaN = 0"""
     
     df_ = df.copy()
-    d = {'Mar,Jun,Sept,Dec': 1, 'Feb,May,Aug,Nov':2, 'Jan,Apr,Jul,Oct':3, np.nan: 0}
+    d = {'Mar,Jun,Sept,Dec': 1, 'Feb,May,Aug,Nov':2, 'Jan,Apr,Jul,Oct':1, np.nan: 0}
     df_['PromoInterval'] = df_['PromoInterval'].map(d)
 
     return df_
@@ -99,9 +99,9 @@ def cleaner(df, store):
     df_ = df.copy()
     df_.dropna(inplace=True)
 
-    df_ = df_[df_['Open']==1]
-    df_ = df_[df_['Sales'] >=0]
-    df_ = df_[df_['Sales'] !=0]
+    df_ = df_[df_['Open']]
+
+    df_ = df_[df_['Sales'] >0]
 
     # for now we don't account for Holidays
     df_ = df_.drop(columns=['StateHoliday', 'SchoolHoliday', 'Open'])
